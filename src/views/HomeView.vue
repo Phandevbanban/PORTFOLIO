@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import Stack from "../components/Stack.vue";
 // import TechStack from "../views/TechStackView.vue";
 import MyProjects from "../components/MyProject.vue";
 import ProgresBar from "../components/Progressbar.vue";
@@ -81,7 +80,7 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
 
     <!-- Tech Stack -->
     <!-- <TechStack /> -->
-    <Stack />
+    <!-- <Stack /> -->
     <ProgresBar />
   </section>
   <img src="../assets/svg/wave.svg" alt="" srcset="" />
