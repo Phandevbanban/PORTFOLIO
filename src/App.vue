@@ -1,22 +1,9 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
-import { ref, watch } from "vue";
-import Sidebar from "./components/Sidebar.vue";
-import ArrowUp from "./components/btn_back.vue";
-
-const isSmallScreen = ref(window.innerWidth <= 390);
-watch(isSmallScreen, (newValue) => {
-  // Ensure correct initial rendering
-  Sidebar.value?.toggleSidebar(newValue);
-});
 </script>
 
 <template>
-  <header>
-    <!-- <Sidebar v-if="!isSmallScreen" ref="Sidebar" /> -->
-    <!-- <ArrowUp /> -->
-    <!-- <Navbar v-if="isSmallScreen"></Navbar> -->
-  </header>
+  <header></header>
   <main class="overflow-x-hidden">
     <RouterView />
   </main>

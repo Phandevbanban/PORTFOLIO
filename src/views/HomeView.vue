@@ -26,10 +26,6 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
 
 <template>
   <FloatingIcons />
-  <!-- <AppSpinner v-if="isLoading" />
-  <main v-else></main> -->
-  <!-- <Scroll v-if="isActive" /> -->
-
   <section
     class="container lg:min-h-screen py-4 lg:px-20 w-screen mx-auto overflow-x-hidden"
     id="home"
@@ -57,8 +53,11 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
           focused on learning Flutter for Mobile Application Development.
         </p>
         <div class="pt-10">
-          <h2 class="font-bold text-xl underline">GET IN CONTACT</h2>
-          <p>Email: <span class="font-bold">phanvilay2001@gmail.com</span></p>
+          <h2 class="font-bold text-xl">GET IN CONTACT</h2>
+          <p>
+            Email:
+            <span class="font-bold underline">phanvilay2001@gmail.com</span>
+          </p>
           <p>Phone: <span class="font-bold"> +856 2059585500</span></p>
         </div>
       </div>
@@ -80,20 +79,6 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
 </template>
 
 <style scoped>
-.route-enter-from {
-  opacity: 0;
-}
-
-.route-enter-active,
-.router-leave-active {
-  transition: all 0.2s ease-out;
-}
-
-.route-leave-to {
-  opacity: 0;
-  transform: translateY(100px);
-}
-
 .border_img {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }

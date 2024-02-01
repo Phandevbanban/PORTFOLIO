@@ -4,10 +4,7 @@
       <div class="pt-20 m-auto">
         <div class="flex justify-center items-center gap-12">
           <div class="h-px flex-1 bg-blue-400 hidden sm:block"></div>
-          <h2 class="text-4xl font-bold" id="skills">
-            <!-- Tech Stack , Expertise and Skills: -->
-            Tools of development
-          </h2>
+          <h2 class="text-4xl font-bold text-center" id="skills">Tools of development</h2>
           <div class="h-px flex-1 bg-blue-400 hidden sm:block"></div>
         </div>
 
@@ -67,7 +64,7 @@
                   'bg-orange-400': skill.score >= 5,
                 }"
               >
-                <p>{{ skill.score }} /10</p>
+                <p>{{ skill.score }}/10</p>
               </span>
             </div>
             <div class="overflow-hidden bg-blue-50 h-1.5 rounded-full w-full">
