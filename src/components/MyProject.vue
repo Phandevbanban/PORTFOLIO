@@ -1,6 +1,6 @@
 <template>
   <div class="pt-52 p-10 m-auto">
-    <h1 class="text-center text-4xl font-bold text-[orange]" id="project">
+    <h1 class="text-center text-4xl font-bold" id="project">
       Work Experience and Projects
     </h1>
   </div>
@@ -24,8 +24,12 @@
         May 2023- current Frontend Developer Houng Ah Loun Technology Assisted
       </h1>
       <p>
-        - junior developer in various phases of the software development
-        lifecycle.
+        - I had the opportunity to work on a variety of web development projects
+        and learn from experienced developers in the field.
+      </p>
+      <p>
+        - The company provided me with hands-on experience in web development by
+        assigning tasks
       </p>
       <p>
         - Gained experience in debugging , design, testing and code
@@ -37,7 +41,6 @@
       </p>
 
       <p>- Participated in weekly stand-up meetings and sprint planning.</p>
-      <p>- I have used the asana in work & .</p>
       <p>
         - I leverage Asana to enhance project management and collaboration
         throughout the software development lifecycle
@@ -58,7 +61,7 @@
       </p>
     </div>
     <div class="m-auto mx-20">
-      <h1 class="text-center text-2xl">Education</h1>
+      <h1 class=" text-2xl font-bold">Education</h1>
       <p class="">
         - Higher Diploma of Information Technology Management in Quest College
         October 2020-September 2023

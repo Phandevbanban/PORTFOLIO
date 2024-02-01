@@ -7,12 +7,12 @@
         </h1> -->
       <div class="pt-20 m-auto">
         <div class="flex justify-center items-center gap-12">
-          <div class="h-px flex-1 bg-[orange] hidden sm:block"></div>
-          <h2 class="text-4xl font-bold text-[orange]" id="skills">
+          <div class="h-px flex-1 bg-blue-400 hidden sm:block"></div>
+          <h2 class="text-4xl font-bold " id="skills">
             <!-- Tech Stack , Expertise and Skills: -->
             Tools of development
           </h2>
-          <div class="h-px flex-1 bg-[orange] hidden sm:block"></div>
+          <div class="h-px flex-1 bg-blue-400 hidden sm:block"></div>
         </div>
 
         <div
