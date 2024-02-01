@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-// import TechStack from "../views/TechStackView.vue";
 import MyProjects from "../components/MyProject.vue";
-import ProgresBar from "../components/Progressbar.vue";
 import FloatingIcons from "../components/Floating_icons.vue";
 import gsap from "gsap";
+import Skill from "../components/Skills.vue";
 // import VueTypedJs from "vue-typed-js";
 
 const container = ref(null);
@@ -30,6 +29,7 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
   <!-- <AppSpinner v-if="isLoading" />
   <main v-else></main> -->
   <!-- <Scroll v-if="isActive" /> -->
+
   <section
     class="container lg:min-h-screen py-4 lg:px-20 w-screen mx-auto overflow-x-hidden"
     id="home"
@@ -72,16 +72,9 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
       </div>
     </div>
 
-    <!-- About me -->
-    <!-- <About /> -->
-
-    <!-- Project -->
     <MyProjects />
 
-    <!-- Tech Stack -->
-    <!-- <TechStack /> -->
-    <!-- <Stack /> -->
-    <ProgresBar />
+    <Skill />
   </section>
   <img src="../assets/svg/wave.svg" alt="" srcset="" />
 </template>

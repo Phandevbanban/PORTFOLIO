@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import { ref, watch } from "vue";
-import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
 import ArrowUp from "./components/btn_back.vue";
 
