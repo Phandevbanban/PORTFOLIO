@@ -1,7 +1,7 @@
 <template>
   <!-- component -->
   <div
-    class="group fixed bottom-0 right-0 p-2 flex items-end justify-end w-24 h-24"
+    class="group fixed bottom-0 right-0 p-2 flex items-end justify-end w-24 h-24 z-50"
   >
     <!-- main -->
     <div

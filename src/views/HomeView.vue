@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import MyProjects from "../components/MyProject.vue";
-import FloatingIcons from "../components/Floating_icons.vue";
 import gsap from "gsap";
 import Skill from "../components/Skills.vue";
-// import VueTypedJs from "vue-typed-js";
 
 const container = ref(null);
 const content = ref(null);
+const Project = ref(null);
 // const isLoading = ref(true);
 onMounted(() => {
   gsap.from(container.value, {
@@ -20,14 +19,11 @@ onMounted(() => {
   });
   // Simulate loading time
 });
-const isActive = ref(true);
-const textToShow = ref("This is a typing effect with vue-typed-js");
 </script>
 
 <template>
-  <FloatingIcons />
   <section
-    class="bg-image bg-no-repeat container lg:min-h-screen py-4 w-screen mx-auto overflow-x-hidden"
+    class="bg-image bg-image bg-no-repeat lg:min-h-screen py-3 w-screen mx-auto overflow-x-hidden"
     id="home"
   >
     <div
@@ -48,7 +44,7 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
         </h2>
         <p
           ref="content"
-          class="mt-6 lg:mt-10 max-w-md bg-white rounded-md white:text-dark shadow-lg shadow-blue-black p-5"
+          class="content_bg mt-6 lg:mt-10 max-w-md bg-white rounded-md text- shadow-lg p-5"
         >
           I'm a software developer my main expertise lies in web development
           especially frontend development, I value simple content structure,
@@ -56,20 +52,22 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
           focused on learning Flutter for Mobile Application Development.
         </p>
         <div class="pt-10 text-white">
-          <h2 class="font-bold text-xl ">CONTACT</h2>
+          <h2 class="font-bold text-xl">CONTACT</h2>
           <p>
             Email:
-            <span class="font-bold underline text-xl">phanvilay2001@gmail.com</span>
+            <span class="font-bold underline text-xl"
+              >phanvilay2001@gmail.com</span
+            >
           </p>
           <p>Phone: <span class="font-bold text-xl"> +856 2059585500</span></p>
         </div>
       </div>
       <!-- right side -->
-      <div class="sm:block lg:w-2/5 md:w-2/5 sm:w-1/5 ms:w-3/5">
+      <div class="sm:block lg:w-2/5 md:w-2/5 sm:w-1/5 ms:w-5/5">
         <img
           src="../assets/images/My_image.jpg"
-          alt="hero-img"
-          class="border_img object-cove"
+          alt="my-img"
+          class="border_img object-cover"
         />
       </div>
     </div>
@@ -84,6 +82,16 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
 .border_img {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
 }
+
+/* .content_bg {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+} */
 .bg-image {
   background-image: url("../assets/images/bg.jpg");
 }

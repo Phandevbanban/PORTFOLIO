@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
+import FloatingIcons from "./components/Floating_icons.vue";
 </script>
 
 <template>
   <header></header>
   <main class="overflow-x-hidden">
+    <FloatingIcons />
     <RouterView />
   </main>
 </template>
