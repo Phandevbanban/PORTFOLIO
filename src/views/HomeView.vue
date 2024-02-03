@@ -27,38 +27,41 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
 <template>
   <FloatingIcons />
   <section
-    class="container lg:min-h-screen py-4 lg:px-20 w-screen mx-auto overflow-x-hidden"
+    class="bg-image bg-no-repeat container lg:min-h-screen py-4 w-screen mx-auto overflow-x-hidden"
     id="home"
   >
-    <!-- left side -->
-    <!-- main section -->
     <div
       ref="container"
       class="pt-10 flex flex-wrap sm:flex-row sm:justify-around mx-10"
       id="about"
     >
       <div class="sm:w-3/5">
-        <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold mt-3 lg:mt-7">
+        <h2
+          class="text-4xl lg:text-5xl xl:text-6xl font-bold mt-3 lg:mt-7 text-white"
+        >
           I'm phanvilay XAPHAKDY
         </h2>
         <h2
-          class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[orange] mt-3 lg:mt-7"
+          class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#] mt-3 lg:mt-7 text-[#FFE1BB]"
         >
           Front-End Web Developer.
         </h2>
-        <p ref="content" class="mt-6 lg:mt-10 max-w-md">
+        <p
+          ref="content"
+          class="mt-6 lg:mt-10 max-w-md bg-white rounded-md white:text-dark shadow-lg shadow-blue-black p-5"
+        >
           I'm a software developer my main expertise lies in web development
           especially frontend development, I value simple content structure,
           clean design patterns, and thoughtful interactions. Currently, I am
           focused on learning Flutter for Mobile Application Development.
         </p>
-        <div class="pt-10">
-          <h2 class="font-bold text-xl">GET IN CONTACT</h2>
+        <div class="pt-10 text-white">
+          <h2 class="font-bold text-xl ">CONTACT</h2>
           <p>
             Email:
-            <span class="font-bold underline">phanvilay2001@gmail.com</span>
+            <span class="font-bold underline text-xl">phanvilay2001@gmail.com</span>
           </p>
-          <p>Phone: <span class="font-bold"> +856 2059585500</span></p>
+          <p>Phone: <span class="font-bold text-xl"> +856 2059585500</span></p>
         </div>
       </div>
       <!-- right side -->
@@ -71,15 +74,21 @@ const textToShow = ref("This is a typing effect with vue-typed-js");
       </div>
     </div>
 
-    <MyProjects />
-
     <Skill />
+    <MyProjects />
   </section>
-  <img src="../assets/svg/wave.svg" alt="" srcset="" />
+  <img src="../assets/svg/wave.svg" alt="" srcset="" class="bg_wave" />
 </template>
 
 <style scoped>
 .border_img {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+.bg-image {
+  background-image: url("../assets/images/bg.jpg");
+}
+
+.bg_wave {
+  background: linear-gradient(0deg, #ffa698, #feccb2);
 }
 </style>

@@ -15,7 +15,7 @@ html {
   scroll-padding: 10rem;
 }
 /*=============== SCROLL BAR ===============*/
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0.6rem;
   background: #fff;
 }
@@ -23,12 +23,17 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #fb923c;
   border-radius: 0.5rem;
+} */
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: #1a1b2f;
 }
 
-@media (max-width: 389px) {
-  .overflow-x-hidden {
-    padding: 0; /* Remove overflow-x hidden for narrower screens */
-  }
-  /* Additional styles for navbar and other elements... */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ffa698, #feccb2);
+  /* background: #fff; */
+  border-radius: 0.5rem;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div class="pt-52 p-10 m-auto">
-    <h1 class="text-center text-4xl font-bold" id="project">
+  <div class="pt-32 p-10 m-auto">
+    <h1 class="text-center text-4xl font-bold text-white" id="project">
       Work Experience and Projects
     </h1>
   </div>
 
   <div
-    class="container lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid grid-cols-2 justify-center items-center gap-12 m-auto ms:grid-cols-1"
+    class="container lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid grid-cols-2 justify-center items-center gap-12 m-auto ms:grid-cols-1 bg-white rounded-md py-10 mx-auto"
   >
     <div class="sm:block sm:w-5/5">
       <img
@@ -49,18 +49,26 @@
         development process.
       </p>
     </div>
-    <!-- <div class="m-auto mx-20">
+    <div class="m-auto mx-20">
       <h1 class="text-2xl font-bold">Education</h1>
       <p class="">
         - Higher Diploma of Information Technology Management in Quest College
         October 2020-September 2023
       </p>
-    </div> -->
-
-
+    </div>
+    <div class="sm:block sm:w-5/5">
+      <img
+        src="../assets/images/Elibrary_book.png"
+        alt="image"
+        srcset=""
+        class="rounded-md object-fit m-auto"
+      />
+    </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+</script>
 
 <style scoped></style>

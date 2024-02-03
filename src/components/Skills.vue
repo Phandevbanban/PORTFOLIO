@@ -3,9 +3,9 @@
     <div class="bg_web rounded-lg p-8 md:p-12">
       <div class="pt-20 m-auto">
         <div class="flex justify-center items-center gap-12">
-          <div class="h-px flex-1 bg-blue-400 hidden sm:block"></div>
-          <h2 class="text-4xl font-bold text-center" id="skills">Tools of development</h2>
-          <div class="h-px flex-1 bg-blue-400 hidden sm:block"></div>
+          <h2 class="text-4xl font-bold text-center text-white" id="skills">
+            Tools of development
+          </h2>
         </div>
 
         <div
@@ -60,7 +60,6 @@
                 class="px-2 py-1 rounded-lg bg-green-50 text-white text-xs"
                 :class="{
                   'bg-yellow-400': skill.score < 6,
-                  'bg-red-400': skill.score < 4,
                   'bg-orange-400': skill.score >= 5,
                 }"
               >
@@ -75,7 +74,6 @@
                 }"
                 :class="{
                   'bg-yellow-400': skill.score < 6,
-                  'bg-red-400': skill.score < 4,
                   'bg-orange-400': skill.score >= 5,
                 }"
               ></span>
