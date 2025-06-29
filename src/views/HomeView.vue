@@ -1,4 +1,4 @@
-<script setup lang="ts">
+a<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import MyProjects from "../components/MyProject.vue";
 import gsap from "gsap";
@@ -32,24 +32,25 @@ onMounted(() => {
       id="about"
     >
       <div class="sm:w-3/5">
-        <h2
-          class="text-4xl lg:text-5xl xl:text-6xl font-bold mt-3 lg:mt-7 text-white"
-        >
+        <h2 class="text-4xl lg:text-5xl xl:text-6xl font-bold mt-3 lg:mt-7">
           I'm phanvilay XAPHAKDY
         </h2>
         <h2
-          class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#] mt-3 lg:mt-7 text-[#FFE1BB]"
+          class="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#] mt-3 lg:mt-7"
         >
-          Front-End Web Developer.
+          FULL-STACK Web Developer.
         </h2>
         <p
           ref="content"
-          class="content_bg mt-6 lg:mt-10 max-w-md bg-white rounded-md text- shadow-lg p-5"
+          class="content_bg mt-6 lg:mt-10 max-w-md bg-white rounded-md text- p-5"
         >
-          I'm a software developer my main expertise lies in web development
-          especially frontend development, I value simple content structure,
-          clean design patterns, and thoughtful interactions. Currently, I am
-          focused on learning Flutter for Mobile Application Development.
+          I build the modern web applications with a focus on performance,
+          accessibility, and user experience. I have a passion for creating
+          intuitive and dynamic user interfaces. I'm a software developer my
+          main expertise lies in web development especially frontend
+          development, I value simple content structure, clean design patterns,
+          and thoughtful interactions. Currently, I am focused on learning
+          Flutter for Mobile Application Development.
         </p>
         <div class="pt-10 text-white">
           <h2 class="font-bold text-xl">CONTACT</h2>
@@ -93,7 +94,7 @@ onMounted(() => {
   border: 1px solid rgba(255, 255, 255, 0.18);
 } */
 .bg-image {
-  background-image: url("../assets/images/bg.jpg");
+  /* background-image: url("../assets/images/bg.jpg"); */
 }
 
 .bg_wave {

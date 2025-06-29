@@ -56,14 +56,6 @@
         </p>
         <p class="">- Intern at Lao Telecom</p>
       </div>
-      <div class="sm:block sm:w-5/5">
-        <img
-          src="../assets/images/Elibrary_book.png"
-          alt="image"
-          srcset=""
-          class="rounded-md object-fit m-auto"
-        />
-      </div>
     </div>
   </div>
 </template>

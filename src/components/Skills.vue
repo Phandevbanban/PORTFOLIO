@@ -3,7 +3,7 @@
     <div class="bg_web rounded-lg p-8 md:p-12">
       <div class="pt-20 m-auto">
         <div class="flex justify-center items-center gap-12">
-          <h2 class="text-4xl font-bold text-center text-white" id="skills">
+          <h2 class="text-4xl font-bold text-center" id="skills">
             Tools of development
           </h2>
         </div>
@@ -40,45 +40,35 @@
         </svg>
         <h3 class="font-medium text-lg">Expertise</h3>
       </header>
-      <section class="py-4 grid grid-cols-2 gap-x-6 w-full">
-        <div
-          v-for="skill in skills"
-          :key="skill.name"
-          class="flex items-center py-3"
-        >
-          <span class="w-8 h-8 shrink-0 mr-4 flex items-center justify-center">
-            <img :src="skill.img" :alt="skill.name" />
-          </span>
-          <div class="space-y-3 flex-1">
-            <div class="flex items-center">
-              <h4
-                class="font-medium text-sm mr-auto text-gray-700 flex items-center"
-              >
-                {{ skill.name }}
-              </h4>
-              <span
-                class="px-2 py-1 rounded-lg bg-green-50 text-white text-xs"
-                :class="{
-                  'bg-yellow-400': skill.score < 6,
-                  'bg-orange-400': skill.score >= 5,
-                }"
-              >
-                <p>{{ skill.score }}/10</p>
-              </span>
-            </div>
-            <div class="overflow-hidden bg-blue-50 h-1.5 rounded-full w-full">
-              <span
-                class="h-full bg-orange-400 w-full block rounded-full"
-                :style="{
-                  width: `${skill.score * 10}%`,
-                }"
-                :class="{
-                  'bg-yellow-400': skill.score < 6,
-                  'bg-orange-400': skill.score >= 5,
-                }"
-              ></span>
+      <section class="py-4 flex flex-col md:flex-row gap-8">
+        <div class="flex-1 grid grid-cols-2 gap-2">
+          <div
+            v-for="skill in skills"
+            :key="skill.name"
+            class="flex items-center py-3"
+          >
+            <span
+              class="w-8 h-8 shrink-0 mr-4 flex items-center justify-center"
+            >
+              <img :src="skill.img" :alt="skill.name" />
+            </span>
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center">
+                <h4
+                  class="font-medium text-sm mr-auto text-gray-700 flex items-center"
+                >
+                  {{ skill.name }}
+                </h4>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="flex-1 flex items-center justify-center">
+          <img
+            src="../assets/images/project_Elibrary_dashboard (2).png"
+            alt="image"
+            class="rounded-md object-contain m-auto max-w-xl w-full"
+          />
         </div>
       </section>
     </section>
@@ -102,20 +92,15 @@ import JavaScriptImage from "@/assets/images/JavaScript.png";
 import TypeScriptImage from "@/assets/images/TypeScript.png";
 
 const skills = [
-  { img: HTMLImage, name: "HTML", score: 7 },
-  { img: CSSImage, name: "CSS", score: 7 },
-  { img: JavaScriptImage, name: "JavaScript", score: 6 },
-  { img: TypeScriptImage, name: "TypeScript", score: 6 },
-  { img: VueImage, name: "Vue", score: 7 },
-  { img: NuxtImage, name: "Nuxt", score: 6 },
-  { img: TailwindImage, name: "Tailwind CSS", score: 7 },
-  { img: AntdesignImage, name: "Ant Design", score: 6 },
-  { img: GitImage, name: "Git", score: 5 },
-  { img: GitHubImage, name: "GitHub", score: 5 },
-  { img: FlutterImage, name: "Flutter", score: 3 },
-  { img: DartImage, name: "Dart", score: 3 },
-  { img: MySQLImage, name: "MySQL", score: 3 },
-  { img: PostgreSQLImage, name: "PostgreSQL", score: 3 },
+  { img: HTMLImage, name: "HTML" },
+  { img: CSSImage, name: "CSS" },
+  { img: JavaScriptImage, name: "JavaScript" },
+  { img: TypeScriptImage, name: "TypeScript" },
+  { img: VueImage, name: "Vue" },
+  { img: TailwindImage, name: "Tailwind CSS" },
+  { img: AntdesignImage, name: "Ant Design" },
+  { img: GitImage, name: "Git" },
+  { img: MySQLImage, name: "MySQL" },
 ];
 </script>
 
