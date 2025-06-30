@@ -28,30 +28,7 @@
           accessibility, and user experience. I value simple content structure,
           clean design patterns, and thoughtful interactions.
         </p>
-        <div class="pt-10 text-blue-700">
-          <!-- <h2 class="font-bold text-xl">CONTACT</h2>
-          <p>
-            Email:
-            <span class="font-bold underline text-xl text-blue-600"
-              >phanvilay2001@gmail.com</span
-            >
-          </p>
-          <p>
-            Phone:
-            <span class="font-bold text-xl text-blue-600">
-              +856 2059585500</span
-            >
-          </p> -->
-          <div
-            class="flex items-center justify-center lg:w-2/5 md:w-2/5 sm:w-1/5 ms:w-5/5"
-          >
-            <!-- <img
-              src="../assets/images/My_image.jpg"
-              alt="my-img"
-              class="border_img object-cover shadow-2xl border-4 border-blue-200 bg-white max-w-xs w-full"
-            /> -->
-          </div>
-        </div>
+
         <!-- Skills -->
         <div class="flex items-center justify-center ms:flex-cols-1">
           <section class="w-full p-6 rounded-lg lg:max-w-6xl max-w-4xl">
