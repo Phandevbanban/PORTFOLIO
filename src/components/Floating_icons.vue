@@ -1,11 +1,11 @@
 <template>
-  <!-- component -->
   <div
-    class="group fixed bottom-0 p-2 flex items-center justify-center w-24 h-24 z-50"
+    class="group fixed bottom-0 left-1/2 -translate-x-1/2 p-2 flex items-end justify-center w-24 h-24 z-50"
   >
     <!-- main -->
     <div
-      class="text-white shadow-xl flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 z-50 absolute"
+      class="text-white shadow-xl flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 z-50 absolute cursor-pointer"
+      @click="open = !open"
     >
       <svg
         class="w-6 h-6 text-gray-800 dark:text-white"
@@ -23,31 +23,41 @@
     </div>
     <!-- sub left -->
     <div
-      class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16 flex p-2 hover:p-3 bg-green-300 scale-100 hover:bg-green-400 text-white"
+      class="absolute rounded-full transition-all duration-[0.2s] ease-out"
+      :class="open ? 'scale-y-100 -translate-x-16' : 'scale-y-0'"
+      style="transform-origin: left bottom;"
     >
-      <a href="#about" v-smooth-scroll class="">
-        <img src="../assets/svg/about.svg" alt="" class="" />
+      <a href="#about" v-smooth-scroll>
+        <img src="../assets/svg/about.svg" alt="" />
       </a>
     </div>
     <!-- sub top -->
     <div
-      class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16 flex p-2 hover:p-3 bg-blue-300 hover:bg-blue-400 text-white"
+      class="absolute rounded-full transition-all duration-[0.2s] ease-out"
+      :class="open ? 'scale-x-100 -translate-y-16' : 'scale-x-0'"
+      style="transform-origin: top center;"
     >
-      <a href="#skills" v-smooth-scroll to="/" class="">
+      <a href="#skills" v-smooth-scroll>
         <img src="../assets/svg/TechStack.svg" alt="" />
       </a>
     </div>
+    <!-- <p class="text-white">My Tech Stack</p> -->
     <!-- sub middle -->
     <div
-      class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-14 group-hover:-translate-x-14 flex p-2 hover:p-3 bg-yellow-300 hover:bg-yellow-400 text-white"
+      class="absolute rounded-full transition-all duration-[0.2s] ease-out"
+      :class="open ? 'scale-x-100 -translate-y-14 -translate-x-14' : 'scale-x-0'"
+      style="transform-origin: left top;"
     >
-      <a href="#project" v-smooth-scroll class="">
+      <a href="#project" v-smooth-scroll>
         <img src="../assets/svg/project.svg" alt="" />
       </a>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+const open = ref(false)
+</script>
 
 <style scoped></style>
