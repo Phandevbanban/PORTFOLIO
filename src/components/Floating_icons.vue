@@ -23,9 +23,9 @@
     </div>
     <!-- sub left -->
     <div
-      class="absolute rounded-full transition-all duration-[0.2s] ease-out"
+      class="absolute rounded-full transition-all duration-[0.2s] ease-out bg-blue-500"
       :class="open ? 'scale-y-100 -translate-x-16' : 'scale-y-0'"
-      style="transform-origin: left bottom;"
+      style="transform-origin: left bottom"
     >
       <a href="#about" v-smooth-scroll>
         <img src="../assets/svg/about.svg" alt="" />
@@ -35,7 +35,7 @@
     <div
       class="absolute rounded-full transition-all duration-[0.2s] ease-out"
       :class="open ? 'scale-x-100 -translate-y-16' : 'scale-x-0'"
-      style="transform-origin: top center;"
+      style="transform-origin: top center"
     >
       <a href="#skills" v-smooth-scroll>
         <img src="../assets/svg/TechStack.svg" alt="" />
@@ -45,8 +45,10 @@
     <!-- sub middle -->
     <div
       class="absolute rounded-full transition-all duration-[0.2s] ease-out"
-      :class="open ? 'scale-x-100 -translate-y-14 -translate-x-14' : 'scale-x-0'"
-      style="transform-origin: left top;"
+      :class="
+        open ? 'scale-x-100 -translate-y-14 -translate-x-14' : 'scale-x-0'
+      "
+      style="transform-origin: left top"
     >
       <a href="#project" v-smooth-scroll>
         <img src="../assets/svg/project.svg" alt="" />
@@ -56,8 +58,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const open = ref(false)
+import { ref } from "vue";
+const open = ref(false);
 </script>
 
 <style scoped></style>
