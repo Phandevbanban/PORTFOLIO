@@ -28,7 +28,11 @@
       style="transform-origin: left bottom"
     >
       <a href="#about" v-smooth-scroll>
-        <img src="../assets/svg/about.svg" alt="" />
+        <img
+          class="w-8 h-8"
+          src="../assets/images/linkedin_3991775.png"
+          alt=""
+        />
       </a>
     </div>
     <!-- sub top -->
@@ -38,7 +42,11 @@
       style="transform-origin: top center"
     >
       <a href="#skills" v-smooth-scroll>
-        <img src="../assets/svg/TechStack.svg" alt="" />
+        <img
+          class="w-10 h-10"
+          src="../assets/images/instagram_15713420.png"
+          alt=""
+        />
       </a>
     </div>
     <!-- <p class="text-white">My Tech Stack</p> -->
@@ -51,7 +59,11 @@
       style="transform-origin: left top"
     >
       <a href="#project" v-smooth-scroll>
-        <img src="../assets/svg/project.svg" alt="" />
+        <img
+          class="w-10 h-10"
+          src="../assets/images/GitHub.png"
+          alt=""
+        />
       </a>
     </div>
   </div>
