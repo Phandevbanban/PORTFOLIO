@@ -89,134 +89,105 @@
             </section>
           </section>
         </div>
-        <div class="mx-10">
-          <h1 class="text-2xl font-semibold">
-            Education
-            <img
-              src="../assets/images/graduate-cap.png"
-              alt="education"
-              class="inline-block w-8 h-8"
-            />
-          </h1>
-          <p class="">
-            - Higher Diploma of Information Technology Management in Quest
-            College October 2020-September 2023
-          </p>
-          <p class="">- Intern at Lao Telecom</p>
-        </div>
-        <div class="mx-10 bg-white pt-20">
-          <!-- Work Experience Section -->
-          <div class="mx-10 bg-white pt-20 rounded-xl shadow-lg">
-            <h1
-              class="text-2xl font-bold mb-8 text-blue-700 border-b-2 border-blue-200 pb-2"
+        <!-- Education & Work Experience -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <!-- Education -->
+          <div
+            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center"
+          >
+            <h2
+              class="text-3xl font-bold text-blue-700 flex items-center gap-2 mb-4"
             >
+              Education
+              <img
+                src="../assets/images/graduate-cap.png"
+                alt="education"
+                class="inline-block w-8 h-8"
+              />
+            </h2>
+            <hr class="border-blue-200 mb-6" />
+            <div class="space-y-4">
+              <div class="bg-blue-50 rounded-lg px-6 py-4">
+                <div class="font-medium text-gray-700 text-lg">
+                  Higher Diploma of Information Technology Management
+                </div>
+                <div class="text-gray-500 text-sm">
+                  Quest College, Oct 2020 - Sep 2023
+                </div>
+              </div>
+              <div class="bg-blue-50 rounded-lg px-6 py-4">
+                <div class="font-medium text-gray-700 text-lg">
+                  Intern at Lao Telecom
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Work Experience -->
+          <div
+            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center"
+          >
+            <h2 class="text-3xl font-bold text-blue-700 mb-4">
               Work Experience
-            </h1>
-            <div class="space-y-8">
+            </h2>
+            <hr class="border-blue-200 mb-6" />
+            <div class="space-y-6">
               <!-- Experience 1 -->
               <div>
-                <div
-                  class="flex flex-col md:flex-row md:items-center md:justify-between"
-                >
-                  <div class="text-xl font-semibold text-gray-900">
-                    Senior Web Developer
-                  </div>
-                  <div
-                    class="flex flex-col md:flex-row md:items-center gap-2 mt-1 md:mt-0"
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="font-bold text-lg text-gray-900"
+                    >CSC COMPLEX CENTER</span
                   >
-                    <a
-                      href="https://mangocode.inc"
-                      target="_blank"
-                      class="text-blue-600 font-medium hover:underline"
-                      >MangoCode Inc.</a
-                    >
-                    <span class="text-gray-400 text-sm">2021–Present</span>
-                  </div>
+                  <span class="text-gray-400 text-sm">2021</span>
                 </div>
-                <ul
-                  class="list-disc list-inside mt-2 text-gray-700 space-y-1 pl-2"
-                >
-                  <li>Led team of 4 developers</li>
+                <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                  <li>Build web application for organization</li>
                   <li>Built internal dashboard for logistics tracking</li>
                   <li>Integrated Firebase authentication and Firestore</li>
                 </ul>
               </div>
               <!-- Experience 2 -->
               <div>
-                <div
-                  class="flex flex-col md:flex-row md:items-center md:justify-between"
-                >
-                  <div class="text-xl font-semibold text-gray-900">
-                    Frontend Developer
-                  </div>
-                  <div
-                    class="flex flex-col md:flex-row md:items-center gap-2 mt-1 md:mt-0"
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <span class="font-bold text-lg text-gray-900"
+                    >Frontend Developer</span
                   >
-                    <a
-                      href="https://thaidev.studio"
-                      target="_blank"
-                      class="text-blue-600 font-medium hover:underline"
-                      >ThaiDev Studio</a
-                    >
-                    <span class="text-gray-400 text-sm">2018–2021</span>
-                  </div>
+                  <span class="text-gray-400 text-sm">2018–2021</span>
                 </div>
-                <ul
-                  class="list-disc list-inside mt-2 text-gray-700 space-y-1 pl-2"
-                >
+                <ul class="list-disc ml-6 text-gray-700 space-y-1">
                   <li>Developed e-commerce platforms using Vue.js</li>
                   <li>Created reusable UI components</li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <div
-            class="lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid grid-cols-2 justify-center items-center gap-12 m-auto ms:grid-cols-1 bg-white rounded-md py-10 mx-auto"
-          >
-            <div class="sm:block sm:w-5/5">
-              <div class="flex-1 flex items-center justify-center">
-                <!-- <img
-                  src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3Z4d2J6b2Z6a3Z2b2Z2c2Z2b2Z2b2Z2b2Z2b2Z2b2Z2b2Z2/giphy.gif"
-                  alt="How to use web application"
-                  class="rounded-md object-contain m-auto max-w-xl w-full shadow-lg"
-                /> -->
-
-                <div class="max-w-2xl mx-auto py-10">
-                  <div
-                    class="relative rounded overflow-hidden shadow-md border-2"
-                  >
-                    <transition name="fade-slide" mode="out-in">
-                      <img
-                        :src="images[current]"
-                        :alt="'Project screenshot ' + (current + 1)"
-                        :key="images[current]"
-                        class="w-full h-80 object-contain"
-                      />
-                    </transition>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="m-auto mx-10 min-[390px]">
-              <h1 class="text-xl">
-                <ul>
-                  <h3>Projects</h3>
-                  <li>- POS (Point of Sale) System</li>
-                  <li>- VEHICLE System</li>
-                  <li>- DMS (Document Management System)</li>
-                  <li>- POS COFFEE</li>
-                  <li>- Defective Product Tracking System</li>
-                </ul>
-              </h1>
+        </div>
+        <!-- Projects Card Grid -->
+        <div class="mt-12">
+          <h2 class="text-3xl font-bold text-blue-700 mb-6">Projects</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              v-for="(img, idx) in images"
+              :key="idx"
+              class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center transition-transform hover:scale-105"
+            >
+              <img
+                :src="img"
+                :alt="'Project screenshot ' + (idx + 1)"
+                class="rounded-lg object-cover w-full h-56 mb-4 border border-blue-100"
+              />
+              <h3 class="font-semibold text-lg text-gray-800 mb-2">
+                Project {{ idx + 1 }}
+              </h3>
+              <p class="text-gray-500 text-sm text-center">
+                Short project description goes here. You can customize this for
+                each project.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- <img src="../assets/svg/wave.svg" alt="" class="bg_wave" /> -->
 </template>
 
 <script setup lang="ts">
@@ -314,9 +285,5 @@ onBeforeUnmount(() => {
 .fade-slide-enter-from {
   opacity: 0;
   transform: translateX(40px);
-}
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateX(-40px);
 }
 </style>
