@@ -49,20 +49,17 @@
         />
       </a>
     </div>
-    <!-- <p class="text-white">My Tech Stack</p> -->
-    <!-- sub middle -->
+    <!-- sub right (GitHub) -->
     <div
       class="absolute rounded-full transition-all duration-[0.2s] ease-out"
-      :class="
-        open ? 'scale-x-100 -translate-y-14 -translate-x-14' : 'scale-x-0'
-      "
-      style="transform-origin: left top"
+      :class="open ? 'scale-x-100 translate-x-16' : 'scale-x-0'"
+      style="transform-origin: right bottom"
     >
       <a href="#project" v-smooth-scroll>
         <img
           class="w-10 h-10"
           src="../assets/images/GitHub.png"
-          alt=""
+          alt="GitHub"
         />
       </a>
     </div>

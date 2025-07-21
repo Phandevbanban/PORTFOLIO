@@ -101,44 +101,19 @@
           </section>
         </div>
         <!-- Education & Work Experience -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-8 mt-12">
           <!-- Education -->
-          <div
-            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center"
-          >
+          <div class="p-8 flex flex-col justify-center">
             <h2
               class="text-3xl font-bold text-blue-700 flex items-center gap-2 mb-4"
             >
-              Education
-              <img
-                src="../assets/images/graduate-cap.png"
-                alt="education"
-                class="inline-block w-8 h-8"
-              />
+           
             </h2>
-            <hr class="border-blue-200 mb-6" />
-            <div class="space-y-4">
-              <div class="rounded-lg px-6 py-4">
-                <div class="font-medium text-gray-700 text-lg">
-                  Higher Diploma of Information Technology Management
-                </div>
-                <div class="text-sm">Quest College, Oct 2020 - Sep 2023</div>
-              </div>
-              <div class="rounded-lg px-6 py-4">
-                <div class="font-medium text-gray-700 text-lg">
-                  Intern at Lao Telecom
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Work Experience -->
-          <div
-            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center"
-          >
+    
             <h2 class="text-3xl font-bold text-blue-700 mb-4">
               Work Experience
             </h2>
-            <hr class="border-blue-200 mb-6" />
+          
             <div class="space-y-6">
               <!-- Experience 1 -->
               <div>
@@ -153,8 +128,31 @@
                   <li>Built internal dashboard for logistics tracking</li>
                 </ul>
               </div>
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <h2
+                    class="text-3xl font-bold text-blue-700 flex items-center gap-2 mb-4"
+                  >
+                    Education
+                    <img
+                      src="../assets/images/graduate-cap.png"
+                      alt="education"
+                      class="inline-block w-8 h-8"
+                    />
+                  </h2>
+                </div>
+                <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                  <li>
+                    Higher Diploma of Information Technology Management Quest
+                    College, Oct 2020 - Sep 2023
+                  </li>
+                  <li>BIntern at Lao Telecom</li>
+                </ul>
+              </div>
             </div>
           </div>
+          <!-- </div> -->
+          <!-- Work Experience -->
         </div>
         <!-- Projects Card Grid -->
         <!-- <div class="mt-12">
