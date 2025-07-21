@@ -26,10 +26,7 @@
         >
           FULL-STACK Web Developer.
         </h2>
-        <p
-          ref="content"
-          class="mt-6 lg:mt-10 max-w-md bg-blue-50 rounded-lg text-gray-700 p-5"
-        >
+        <p ref="content" class="mt-6 lg:mt-10 max-w-md text-gray-700 p-5">
           I build modern web applications with a focus on performance, clean
           design patterns accessibility, and user experience.
         </p>
@@ -79,12 +76,26 @@
                   </div>
                 </div>
               </div>
-              <div class="flex-1 flex items-center justify-center">
-                <img
-                  src="../assets/images/project_Elibrary_dashboard (2).png"
-                  alt="image"
-                  class="rounded-md object-contain m-auto max-w-xl w-full"
-                />
+              <!-- Carousel for project images -->
+              <div
+                class="flex-1 flex flex-col items-center justify-center relative"
+              >
+                <transition name="carousel-slide" mode="out-in">
+                  <img
+                    :src="images[current]"
+                    :key="images[current]"
+                    alt="Project screenshot"
+                    class="rounded-md object-contain m-auto max-w-xl w-full transition-all duration-500"
+                  />
+                </transition>
+                <div class="flex gap-2 mt-4">
+                  <span
+                    v-for="(img, idx) in images"
+                    :key="idx"
+                    class="w-3 h-3 rounded-full"
+                    :class="current === idx ? 'bg-blue-500' : 'bg-blue-200'"
+                  ></span>
+                </div>
               </div>
             </section>
           </section>
@@ -107,15 +118,13 @@
             </h2>
             <hr class="border-blue-200 mb-6" />
             <div class="space-y-4">
-              <div class="bg-blue-50 rounded-lg px-6 py-4">
+              <div class="rounded-lg px-6 py-4">
                 <div class="font-medium text-gray-700 text-lg">
                   Higher Diploma of Information Technology Management
                 </div>
-                <div class="text-gray-500 text-sm">
-                  Quest College, Oct 2020 - Sep 2023
-                </div>
+                <div class="text-sm">Quest College, Oct 2020 - Sep 2023</div>
               </div>
-              <div class="bg-blue-50 rounded-lg px-6 py-4">
+              <div class="rounded-lg px-6 py-4">
                 <div class="font-medium text-gray-700 text-lg">
                   Intern at Lao Telecom
                 </div>
@@ -142,27 +151,13 @@
                 <ul class="list-disc ml-6 text-gray-700 space-y-1">
                   <li>Build web application for organization</li>
                   <li>Built internal dashboard for logistics tracking</li>
-                  <li>Integrated Firebase authentication and Firestore</li>
-                </ul>
-              </div>
-              <!-- Experience 2 -->
-              <div>
-                <div class="flex flex-wrap items-center gap-2 mb-1">
-                  <span class="font-bold text-lg text-gray-900"
-                    >Frontend Developer</span
-                  >
-                  <span class="text-gray-400 text-sm">2018–2021</span>
-                </div>
-                <ul class="list-disc ml-6 text-gray-700 space-y-1">
-                  <li>Developed e-commerce platforms using Vue.js</li>
-                  <li>Created reusable UI components</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         <!-- Projects Card Grid -->
-        <div class="mt-12">
+        <!-- <div class="mt-12">
           <h2 class="text-3xl font-bold text-blue-700 mb-6">Projects</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div
@@ -184,7 +179,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -285,5 +280,18 @@ onBeforeUnmount(() => {
 .fade-slide-enter-from {
   opacity: 0;
   transform: translateX(40px);
+}
+
+.carousel-slide-enter-active,
+.carousel-slide-leave-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide-enter-from {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.carousel-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-40px);
 }
 </style>
