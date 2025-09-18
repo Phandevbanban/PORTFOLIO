@@ -55,13 +55,13 @@
       :class="open ? 'scale-x-100 translate-x-16' : 'scale-x-0'"
       style="transform-origin: right bottom"
     >
-      <a href="#project" v-smooth-scroll>
+      <!-- <a href="#project" v-smooth-scroll>
         <img
           class="w-10 h-10"
           src="../assets/images/GitHub.png"
           alt="GitHub"
         />
-      </a>
+      </a> -->
     </div>
   </div>
 </template>
