@@ -127,23 +127,27 @@
                   <div
                     class="relative bg-white rounded-lg p-4 max-w-4xl w-full mx-4 flex items-center justify-center"
                   >
-                    <button
-                      class="absolute left-4 text-3xl text-gray-700 bg-white/80 rounded-full p-2"
-                      @click="modalPrev"
-                    >
-                      ‹
-                    </button>
-                    <button
-                      class="absolute right-4 text-3xl text-gray-700 bg-white/80 rounded-full p-2"
-                      @click="modalNext"
-                    >
-                      ›
-                    </button>
+                    <!-- Close button -->
                     <button
                       class="absolute top-2 right-3 text-2xl text-gray-700"
                       @click="closePreview"
                     >
-                      &times;
+                      <!-- &times; -->
+                    </button>
+                    <!-- External nav buttons (appear outside the white box on larger screens) -->
+                    <button
+                      class="hidden sm:flex absolute -left-10 text-3xl text-gray-700 bg-white/90 rounded-full p-2 shadow"
+                      @click="modalPrev"
+                      aria-label="Previous project"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      class="hidden sm:flex absolute -right-10 text-3xl text-gray-700 bg-white/90 rounded-full p-2 shadow"
+                      @click="modalNext"
+                      aria-label="Next project"
+                    >
+                      ›
                     </button>
                     <div class="w-full">
                       <img
