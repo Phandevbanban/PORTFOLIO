@@ -80,21 +80,111 @@
               <div
                 class="flex-1 flex flex-col items-center justify-center relative"
               >
-                <transition name="carousel-slide" mode="out-in">
-                  <img
-                    :src="images[current]"
-                    :key="images[current]"
-                    alt="Project screenshot"
-                    class="rounded-md object-contain m-auto max-w-xl w-full transition-all duration-500"
-                  />
-                </transition>
+                <div class="w-full relative">
+                  <button
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow"
+                    @click.prevent="prev"
+                    aria-label="Previous"
+                  >
+                    ‹
+                  </button>
+                  <transition name="carousel-slide" mode="out-in">
+                    <img
+                      :src="images[current]"
+                      :key="images[current]"
+                      alt="Project screenshot"
+                      class="rounded-md object-contain m-auto max-w-xl w-full transition-all duration-500 cursor-pointer"
+                      @click="openPreview(images[current])"
+                    />
+                  </transition>
+                  <button
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow"
+                    @click.prevent="next"
+                    aria-label="Next"
+                  >
+                    ›
+                  </button>
+                </div>
                 <div class="flex gap-2 mt-4">
-                  <span
+                  <button
                     v-for="(img, idx) in images"
                     :key="idx"
                     class="w-3 h-3 rounded-full"
                     :class="current === idx ? 'bg-blue-500' : 'bg-blue-200'"
-                  ></span>
+                    @click="current = idx"
+                    :aria-label="`Go to slide ${idx + 1}`"
+                  ></button>
+                </div>
+                <!-- Modal preview for clicked image -->
+                <div
+                  v-if="previewImg"
+                  class="fixed inset-0 z-50 flex items-center justify-center"
+                >
+                  <div
+                    class="absolute inset-0 bg-black/60"
+                    @click="closePreview"
+                  ></div>
+                  <div
+                    class="relative bg-white rounded-lg p-4 max-w-4xl w-full mx-4 flex items-center justify-center"
+                  >
+                    <button
+                      class="absolute left-4 text-3xl text-gray-700 bg-white/80 rounded-full p-2"
+                      @click="modalPrev"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      class="absolute right-4 text-3xl text-gray-700 bg-white/80 rounded-full p-2"
+                      @click="modalNext"
+                    >
+                      ›
+                    </button>
+                    <button
+                      class="absolute top-2 right-3 text-2xl text-gray-700"
+                      @click="closePreview"
+                    >
+                      &times;
+                    </button>
+                    <div class="w-full">
+                      <img
+                        :src="previewImg"
+                        alt="Preview"
+                        class="w-full object-contain max-h-[60vh] rounded mb-4 mx-auto"
+                      />
+                      <!-- title & description -->
+                      <div class="px-4 text-center">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                          {{ previewTitle }}
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-4">
+                          {{ previewDesc }}
+                        </p>
+                      </div>
+                      <!-- thumbnails -->
+                      <div class="flex gap-3 overflow-x-auto px-4 py-2">
+                        <button
+                          v-for="(p, idx) in projects"
+                          :key="idx"
+                          class="rounded overflow-hidden border-2"
+                          :class="
+                            previewIndex === idx
+                              ? 'border-blue-500'
+                              : 'border-transparent'
+                          "
+                          @click="
+                            (previewIndex = idx), (previewImg = images[idx])
+                          "
+                          aria-label="`Open ${p.title}`"
+                        >
+                          <img
+                            :src="p.src"
+                            :alt="p.title"
+                            class="w-24 h-16 object-cover"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -103,72 +193,92 @@
         <!-- Education & Work Experience -->
         <div class="grid grid-cols-1 md:grid-cols-1 gap-8 mt-12">
           <!-- Education -->
-          <div
-            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center"
-          >
-            <h2
-              class="text-3xl font-bold text-blue-700 flex items-center gap-2 mb-4"
-            >
-           
-            </h2>
-            <hr class="border-blue-200 mb-6" />
-            <div class="space-y-4">
-              <div class="bg-blue-50 rounded-lg px-6 py-4">
-                <div class="font-medium text-gray-700 text-lg">
-                  Higher Diploma of Information Technology Management
-                </div>
-                <div class="text-gray-500 text-sm">
-                  Quest College, Oct 2020 - Sep 2023
-                </div>
-              </div>
-              <div class="bg-blue-50 rounded-lg px-6 py-4">
-                <div class="font-medium text-gray-700 text-lg">
-                  Intern at Lao Telecom
-                </div>
-              </div>
+
+          <!-- Work Experience / CV -->
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-3xl font-bold text-blue-700">Work Experience</h2>
+              <a
+                href="/CV.pdf"
+                class="text-sm bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600"
+                download
+                >Download CV</a
+              >
             </div>
-          </div>
-          <!-- Work Experience -->
-          <div
-            class="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center"
-          >
-            <h2 class="text-3xl font-bold text-blue-700 mb-4">
-              Work Experience
-            </h2>
-          
-            <div class="space-y-6">
-              <!-- Experience 1 -->
+
+            <div class="space-y-8">
+              <!-- Position: Front-End Web Developer -->
               <div>
-                <div class="flex flex-wrap items-center gap-2 mb-1">
-                  <span class="font-bold text-lg text-gray-900"
-                    >CSC COMPLEX CENTER</span
-                  >
-                  <span class="text-gray-400 text-sm">2021</span>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div>
+                    <div class="font-semibold">
+                      Position Front-End Web Developer
+                    </div>
+                    <div class="text-sm text-gray-700">
+                      Houng Ah Loun Technology
+                    </div>
+                  </div>
+                  <div class="text-sm text-gray-500">
+                    2 May 2023 - 31 January 2024
+                  </div>
                 </div>
-                <ul class="list-disc ml-6 text-gray-700 space-y-1">
-                  <li>Build web application for organization</li>
-                  <li>Built internal dashboard for logistics tracking</li>
+                <ul class="list-disc ml-6 text-gray-700 mt-3 space-y-1">
+                  <li>
+                    The company provided me with hands-on experience in web
+                    development by assigning tasks.
+                  </li>
+                  <li>
+                    Gained experience in debugging, design, testing and code
+                    optimization.
+                  </li>
+                  <li>
+                    Collaborated on small to medium-sized coding tasks and
+                    projects, demonstrating a strong willingness to learn and
+                    grow.
+                  </li>
+                  <li>
+                    Participated in weekly stand-up meetings and sprint
+                    planning.
+                  </li>
+                  <li>
+                    Internship at Lao Telecom: Online Charging IT Department —
+                    learned about mobile networks, fixed-line services, internet
+                    services, and value-added services and developed MySQL
+                    skills.
+                  </li>
                 </ul>
               </div>
+
+              <!-- Position: Full-Stack Web Developer -->
               <div>
-                <div class="flex flex-wrap items-center gap-2 mb-1">
-                  <h2
-                    class="text-3xl font-bold text-blue-700 flex items-center gap-2 mb-4"
-                  >
-                    Education
-                    <img
-                      src="../assets/images/graduate-cap.png"
-                      alt="education"
-                      class="inline-block w-8 h-8"
-                    />
-                  </h2>
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div>
+                    <div class="font-semibold">
+                      Position Full-Stack Web Developer
+                    </div>
+                    <div class="text-sm text-gray-700">
+                      CSC Complex Center Co, Ltd
+                    </div>
+                  </div>
+                  <div class="text-sm text-gray-500">
+                    1 April 2024 - 17 August 2025
+                  </div>
                 </div>
-                <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                <ul class="list-disc ml-6 text-gray-700 mt-3 space-y-1">
                   <li>
-                    Higher Diploma of Information Technology Management Quest
-                    College, Oct 2020 - Sep 2023
+                    Developed and launched web applications using modern
+                    technologies (e.g., React, Node.js, MySQL) to meet business
+                    requirements.
                   </li>
-                  <li>BIntern at Lao Telecom</li>
+                  <li>
+                    Maintained and enhanced existing company web applications;
+                    implemented fixes for critical bugs and crashes.
+                  </li>
+                  <li>
+                    Provided technical support and troubleshooting for various
+                    departments, resolving application issues to ensure smooth
+                    daily operations.
+                  </li>
                 </ul>
               </div>
             </div>
@@ -207,6 +317,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref, onBeforeUnmount } from "vue";
+import { computed } from "vue";
 import gsap from "gsap";
 import GitImage from "@/assets/images/Git.png";
 import HTMLImage from "@/assets/images/HTML5.png";
@@ -220,8 +331,11 @@ import TypeScriptImage from "@/assets/images/TypeScript.png";
 import ReactImage from "@/assets/images/React.png";
 import NestImage from "@/assets/images/Nest.js.png";
 import DockerImage from "@/assets/images/Docker.png";
-import Screenshot090259Img from "@/assets/images/csc-project/Screenshot 2024-12-03 090259.png";
-import Screenshot090327Img from "@/assets/images/csc-project/Screenshot 2024-12-03 090327.png";
+import POS_CSCS_1 from "@/assets/images/csc-project/Screenshot 2024-12-03 090259.png";
+import POS_CSCS_2 from "@/assets/images/csc-project/Screenshot 2024-12-03 090327.png";
+import CSCVehicle1 from "@/assets/images/csc-project/csc-vehicle1.png";
+import CSCVehicle2 from "@/assets/images/csc-project/csc-vehicle2.png";
+import POSCoffee from "@/assets/images/csc-project/pos-coffee.png";
 
 const skills = [
   { img: HTMLImage, name: "HTML" },
@@ -254,7 +368,84 @@ onMounted(() => {
   startAutoSlide();
 });
 
-const images = [Screenshot090259Img, Screenshot090327Img];
+const images = [CSCVehicle1, CSCVehicle2, POSCoffee, POS_CSCS_1, POS_CSCS_2];
+
+// projects metadata with title and description
+const projects = [
+  {
+    src: CSCVehicle1,
+    title: "CSC Vehicle",
+    desc: "Report Vehicle UI Dashboard.",
+  },
+  {
+    src: CSCVehicle2,
+    title: "CSC Vehicle",
+    desc: "Table document for use vehicle.",
+  },
+  {
+    src: POSCoffee,
+    title: "POS Coffee",
+    desc: "Point-of-sale interface for coffee.",
+  },
+  {
+    src: POS_CSCS_1,
+    title: "CSC POS",
+    desc: "Employee interface.",
+  },
+  {
+    src: POS_CSCS_2,
+    title: "CSC POS",
+    desc: "Customer interface.",
+  },
+];
+
+const previewImg = ref<string | null>(null);
+// track index of previewed image for modal navigation
+const previewIndex = ref<number | null>(null);
+function openPreview(img: string) {
+  // set preview image and index
+  const idx = images.indexOf(img as any);
+  previewIndex.value = idx >= 0 ? idx : 0;
+  previewImg.value = images[previewIndex.value];
+}
+function closePreview() {
+  previewImg.value = null;
+  previewIndex.value = null;
+}
+
+function modalPrev() {
+  if (previewIndex.value === null) return;
+  previewIndex.value = (previewIndex.value - 1 + images.length) % images.length;
+  previewImg.value = images[previewIndex.value];
+}
+function modalNext() {
+  if (previewIndex.value === null) return;
+  previewIndex.value = (previewIndex.value + 1) % images.length;
+  previewImg.value = images[previewIndex.value];
+}
+
+// keyboard navigation for modal
+function onKeydown(e: KeyboardEvent) {
+  if (!previewImg.value) return;
+  if (e.key === "ArrowLeft") modalPrev();
+  if (e.key === "ArrowRight") modalNext();
+  if (e.key === "Escape") closePreview();
+}
+onMounted(() => {
+  window.addEventListener("keydown", onKeydown);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", onKeydown);
+});
+
+const previewTitle = computed(() => {
+  if (previewIndex.value === null) return "";
+  return projects[previewIndex.value]?.title || "";
+});
+const previewDesc = computed(() => {
+  if (previewIndex.value === null) return "";
+  return projects[previewIndex.value]?.desc || "";
+});
 
 const current = ref(0);
 let intervalId: ReturnType<typeof setInterval> | null = null;
