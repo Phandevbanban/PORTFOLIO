@@ -55,11 +55,6 @@
           <div class="p-8 border-t border-gray-100 flex-1 flex flex-col">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <p
-                  class="text-xs font-bold text-blue-600 tracking-wider uppercase mb-1"
-                >
-                  {{ project.category }}
-                </p>
                 <h3
                   class="text-2xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors"
                 >
@@ -181,11 +176,6 @@
         >
           <!-- Header -->
           <div class="p-8 pb-4">
-            <p
-              class="text-xs font-bold text-blue-600 tracking-widest uppercase mb-2"
-            >
-              {{ activeProject?.category }}
-            </p>
             <h3 class="text-3xl font-bold text-gray-900 leading-tight">
               {{ activeProject?.title }}
             </h3>
