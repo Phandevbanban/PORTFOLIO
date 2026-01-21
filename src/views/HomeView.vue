@@ -54,146 +54,14 @@
               <h3 class="font-medium text-lg">Tools of development</h3>
             </header>
             <section class="py-4 flex flex-col md:flex-row gap-8">
-              <div class="flex-1 grid grid-cols-2 gap-2">
-                <div
-                  v-for="skill in skills"
-                  :key="skill.name"
-                  class="flex items-center py-3"
-                >
-                  <span
-                    class="w-8 h-8 shrink-0 mr-4 flex items-center justify-center"
-                  >
-                    <img :src="skill.img" :alt="skill.name" />
-                  </span>
-                  <div class="space-y-2 flex-1">
-                    <div class="flex items-center">
-                      <h4
-                        class="font-medium text-sm mr-auto text-gray-700 flex items-center"
-                      >
-                        {{ skill.name }}
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Carousel for project images -->
-              <div
-                class="flex-1 flex flex-col items-center justify-center relative"
-              >
-                <div class="w-full relative">
-                  <button
-                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow"
-                    @click.prevent="prev"
-                    aria-label="Previous"
-                  >
-                    ‹
-                  </button>
-                  <transition name="carousel-slide" mode="out-in">
-                    <img
-                      :src="images[current]"
-                      :key="images[current]"
-                      alt="Project screenshot"
-                      class="rounded-md object-contain m-auto max-w-xl w-full transition-all duration-500 cursor-pointer"
-                      @click="openPreview(images[current])"
-                    />
-                  </transition>
-                  <button
-                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow"
-                    @click.prevent="next"
-                    aria-label="Next"
-                  >
-                    ›
-                  </button>
-                </div>
-                <div class="flex gap-2 mt-4">
-                  <button
-                    v-for="(img, idx) in images"
-                    :key="idx"
-                    class="w-3 h-3 rounded-full"
-                    :class="current === idx ? 'bg-blue-500' : 'bg-blue-200'"
-                    @click="current = idx"
-                    :aria-label="`Go to slide ${idx + 1}`"
-                  ></button>
-                </div>
-                <!-- Modal preview for clicked image -->
-                <div
-                  v-if="previewImg"
-                  class="fixed inset-0 z-50 flex items-center justify-center"
-                >
-                  <div
-                    class="absolute inset-0 bg-black/60"
-                    @click="closePreview"
-                  ></div>
-                  <div
-                    class="relative bg-white rounded-lg p-4 max-w-4xl w-full mx-4 flex items-center justify-center"
-                  >
-                    <!-- Close button -->
-                    <button
-                      class="absolute top-2 right-3 text-2xl text-gray-700"
-                      @click="closePreview"
-                    >
-                      <!-- &times; -->
-                    </button>
-                    <!-- External nav buttons (appear outside the white box on larger screens) -->
-                    <button
-                      class="hidden sm:flex absolute -left-10 text-3xl text-gray-700 bg-white/90 rounded-full p-2 shadow"
-                      @click="modalPrev"
-                      aria-label="Previous project"
-                    >
-                      ‹
-                    </button>
-                    <button
-                      class="hidden sm:flex absolute -right-10 text-3xl text-gray-700 bg-white/90 rounded-full p-2 shadow"
-                      @click="modalNext"
-                      aria-label="Next project"
-                    >
-                      ›
-                    </button>
-                    <div class="w-full">
-                      <img
-                        :src="previewImg"
-                        alt="Preview"
-                        class="w-full object-contain max-h-[60vh] rounded mb-4 mx-auto"
-                      />
-                      <!-- title & description -->
-                      <div class="px-4 text-center">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                          {{ previewTitle }}
-                        </h3>
-                        <p class="text-sm text-gray-600 mb-4">
-                          {{ previewDesc }}
-                        </p>
-                      </div>
-                      <!-- thumbnails -->
-                      <div class="flex gap-3 overflow-x-auto px-4 py-2">
-                        <button
-                          v-for="(p, idx) in projects"
-                          :key="idx"
-                          class="rounded overflow-hidden border-2"
-                          :class="
-                            previewIndex === idx
-                              ? 'border-blue-500'
-                              : 'border-transparent'
-                          "
-                          @click="
-                            (previewIndex = idx), (previewImg = images[idx])
-                          "
-                          aria-label="`Open ${p.title}`"
-                        >
-                          <img
-                            :src="p.src"
-                            :alt="p.title"
-                            class="w-24 h-16 object-cover"
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <SkillStack />
             </section>
           </section>
         </div>
+
+        <!-- Projects Gallery -->
+        <ProjectGallery />
+
         <!-- Education & Work Experience -->
         <div class="grid grid-cols-1 md:grid-cols-1 gap-8 mt-12">
           <!-- Education -->
@@ -320,45 +188,13 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, onBeforeUnmount } from "vue";
-import { computed } from "vue";
+import { onMounted, ref } from "vue";
 import gsap from "gsap";
-import GitImage from "@/assets/images/Git.png";
-import HTMLImage from "@/assets/images/HTML5.png";
-import CSSImage from "@/assets/images/CSS3.png";
-import VueImage from "@/assets/images/Vue.js.png";
-import TailwindImage from "@/assets/images/Tailwind CSS.png";
-import AntdesignImage from "@/assets/images/Ant Design.png";
-import MySQLImage from "@/assets/images/MySQL.png";
-import JavaScriptImage from "@/assets/images/JavaScript.png";
-import TypeScriptImage from "@/assets/images/TypeScript.png";
-import ReactImage from "@/assets/images/React.png";
-import NestImage from "@/assets/images/Nest.js.png";
-import DockerImage from "@/assets/images/Docker.png";
-import POS_CSCS_1 from "@/assets/images/csc-project/Screenshot 2024-12-03 090259.png";
-import POS_CSCS_2 from "@/assets/images/csc-project/Screenshot 2024-12-03 090327.png";
-import CSCVehicle1 from "@/assets/images/csc-project/csc-vehicle1.png";
-import CSCVehicle2 from "@/assets/images/csc-project/csc-vehicle2.png";
-import POSCoffee from "@/assets/images/csc-project/pos-coffee.png";
-
-const skills = [
-  { img: HTMLImage, name: "HTML" },
-  { img: CSSImage, name: "CSS" },
-  { img: JavaScriptImage, name: "JavaScript" },
-  { img: TypeScriptImage, name: "TypeScript" },
-  { img: VueImage, name: "Vue" },
-  { img: TailwindImage, name: "Tailwind CSS" },
-  { img: AntdesignImage, name: "Ant Design" },
-  { img: GitImage, name: "Git" },
-  { img: MySQLImage, name: "MySQL" },
-  { img: ReactImage, name: "React" },
-  { img: NestImage, name: "NestJS" },
-  { img: DockerImage, name: "Docker" },
-];
+import SkillStack from "@/components/SkillStack.vue";
+import ProjectGallery from "@/components/ProjectGallery.vue";
 
 const container = ref(null);
 const content = ref(null);
-const Project = ref(null);
 
 onMounted(() => {
   gsap.from(container.value, {
@@ -369,106 +205,6 @@ onMounted(() => {
     autoAlpha: 0,
     ease: "back.out(1.7)",
   });
-  startAutoSlide();
-});
-
-const images = [CSCVehicle1, CSCVehicle2, POSCoffee, POS_CSCS_1, POS_CSCS_2];
-
-// projects metadata with title and description
-const projects = [
-  {
-    src: CSCVehicle1,
-    title: "CSC Vehicle",
-    desc: "Report Vehicle UI Dashboard.",
-  },
-  {
-    src: CSCVehicle2,
-    title: "CSC Vehicle",
-    desc: "Table document for use vehicle.",
-  },
-  {
-    src: POSCoffee,
-    title: "POS Coffee",
-    desc: "Point-of-sale interface for coffee.",
-  },
-  {
-    src: POS_CSCS_1,
-    title: "CSC POS",
-    desc: "Employee interface.",
-  },
-  {
-    src: POS_CSCS_2,
-    title: "CSC POS",
-    desc: "Customer interface.",
-  },
-];
-
-const previewImg = ref<string | null>(null);
-// track index of previewed image for modal navigation
-const previewIndex = ref<number | null>(null);
-function openPreview(img: string) {
-  // set preview image and index
-  const idx = images.indexOf(img as any);
-  previewIndex.value = idx >= 0 ? idx : 0;
-  previewImg.value = images[previewIndex.value];
-}
-function closePreview() {
-  previewImg.value = null;
-  previewIndex.value = null;
-}
-
-function modalPrev() {
-  if (previewIndex.value === null) return;
-  previewIndex.value = (previewIndex.value - 1 + images.length) % images.length;
-  previewImg.value = images[previewIndex.value];
-}
-function modalNext() {
-  if (previewIndex.value === null) return;
-  previewIndex.value = (previewIndex.value + 1) % images.length;
-  previewImg.value = images[previewIndex.value];
-}
-
-// keyboard navigation for modal
-function onKeydown(e: KeyboardEvent) {
-  if (!previewImg.value) return;
-  if (e.key === "ArrowLeft") modalPrev();
-  if (e.key === "ArrowRight") modalNext();
-  if (e.key === "Escape") closePreview();
-}
-onMounted(() => {
-  window.addEventListener("keydown", onKeydown);
-});
-onBeforeUnmount(() => {
-  window.removeEventListener("keydown", onKeydown);
-});
-
-const previewTitle = computed(() => {
-  if (previewIndex.value === null) return "";
-  return projects[previewIndex.value]?.title || "";
-});
-const previewDesc = computed(() => {
-  if (previewIndex.value === null) return "";
-  return projects[previewIndex.value]?.desc || "";
-});
-
-const current = ref(0);
-let intervalId: ReturnType<typeof setInterval> | null = null;
-
-const prev = () => {
-  current.value = (current.value - 1 + images.length) % images.length;
-};
-const next = () => {
-  current.value = (current.value + 1) % images.length;
-};
-
-function startAutoSlide() {
-  intervalId = setInterval(() => {
-    next();
-  }, 3000); // 3 seconds
-}
-
-onBeforeUnmount(() => {
-  if (intervalId) clearInterval(intervalId);
 });
 </script>
 
