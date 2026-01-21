@@ -1,9 +1,9 @@
 <template>
-  <section class="py-24" id="projects">
+  <section class="" id="projects">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-16 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-           Projects
+          Projects
         </h2>
       </div>
 
@@ -12,7 +12,7 @@
         <div
           v-for="(project, index) in projects"
           :key="project.id"
-          class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-200 flex flex-col cursor-pointer"
+          class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl border border-gray-200 flex flex-col cursor-pointer"
           @click="openProject(index)"
         >
           <!-- Browser Mockup Container -->
@@ -24,7 +24,7 @@
 
             <!-- Browser Window Frame -->
             <div
-              class="relative rounded-t-lg bg-white shadow-lg border border-gray-200 border-b-0 overflow-hidden transform group-hover:scale-[1.02] transition-transform duration-500 origin-bottom"
+              class="relative rounded-t-lg bg-white shadow-lg border border-gray-200 border-b-0 overflow-hidden transform origin-bottom"
             >
               <!-- Window Header -->
               <div
@@ -104,95 +104,142 @@
       centered
       :destroyOnClose="true"
       :bodyStyle="{ padding: 0, height: '85vh' }"
-      style="max-width: 1400px; top: 0; padding-bottom: 0;"
+      style="max-width: 1400px; top: 0; padding-bottom: 0"
     >
-      <div class="flex flex-col lg:flex-row h-full bg-white text-slate-950 overflow-hidden rounded-lg">
-        
+      <div
+        class="flex flex-col lg:flex-row h-full bg-white text-slate-950 overflow-hidden rounded-lg"
+      >
         <!-- Left Column: Image Area (65-70%) -->
-        <div class="flex-1 bg-gray-100/50 relative flex items-center justify-center p-4 lg:p-12 overflow-hidden group/nav">
-             <!-- Navigation Buttons -->
-             <button 
-                v-if="activeProject && activeProject.images.length > 1"
-                @click.stop="prevImage"
-                class="absolute left-4 lg:left-8 h-12 w-12 rounded-full border border-gray-200 bg-white shadow-lg flex items-center justify-center hover:bg-blue-50 text-gray-700 transition-all opacity-0 group-hover/nav:opacity-100 z-20"
-             >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-             </button>
+        <div
+          class="flex-1 bg-gray-100/50 relative flex items-center justify-center p-4 lg:p-12 overflow-hidden group/nav"
+        >
+          <!-- Navigation Buttons -->
+          <button
+            v-if="activeProject && activeProject.images.length > 1"
+            @click.stop="prevImage"
+            class="absolute left-4 lg:left-8 h-12 w-12 rounded-full border border-gray-200 bg-white shadow-lg flex items-center justify-center hover:bg-blue-50 text-gray-700 transition-all opacity-0 group-hover/nav:opacity-100 z-20"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+          </button>
 
-             <button 
-                v-if="activeProject && activeProject.images.length > 1"
-                @click.stop="nextImage"
-                class="absolute right-4 lg:right-8 h-12 w-12 rounded-full border border-gray-200 bg-white shadow-lg flex items-center justify-center hover:bg-blue-50 text-gray-700 transition-all opacity-0 group-hover/nav:opacity-100 z-20"
-             >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-             </button>
-             
-             <!-- Image Transition -->
-             <Transition name="fade" mode="out-in">
-                <div :key="currentImageIndex" class="w-full h-full flex items-center justify-center">
-                    <img :src="activeImage" class="max-w-full max-h-full object-contain shadow-sm rounded-md" />
-                </div>
-             </Transition>
+          <button
+            v-if="activeProject && activeProject.images.length > 1"
+            @click.stop="nextImage"
+            class="absolute right-4 lg:right-8 h-12 w-12 rounded-full border border-gray-200 bg-white shadow-lg flex items-center justify-center hover:bg-blue-50 text-gray-700 transition-all opacity-0 group-hover/nav:opacity-100 z-20"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
 
-             <!-- Counter Pill -->
-             <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full text-xs font-semibold shadow-sm border border-gray-200 text-gray-500">
-                {{ currentImageIndex + 1 }} / {{ activeProject?.images.length }}
-             </div>
+          <!-- Image Transition -->
+          <Transition name="fade" mode="out-in">
+            <div
+              :key="currentImageIndex"
+              class="w-full h-full flex items-center justify-center"
+            >
+              <img
+                :src="activeImage"
+                class="max-w-full max-h-full object-contain shadow-sm rounded-md"
+              />
+            </div>
+          </Transition>
+
+          <!-- Counter Pill -->
+          <div
+            class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full text-xs font-semibold shadow-sm border border-gray-200 text-gray-500"
+          >
+            {{ currentImageIndex + 1 }} / {{ activeProject?.images.length }}
+          </div>
         </div>
 
         <!-- Right Column: Details Sidebar (35%) -->
-        <div class="w-full lg:w-[450px] bg-white border-l border-gray-100 flex flex-col h-full overflow-hidden">
-            <!-- Header -->
-            <div class="p-8 pb-4">
-                <p class="text-xs font-bold text-blue-600 tracking-widest uppercase mb-2">
-                    {{ activeProject?.category }}
-                </p>
-                <h3 class="text-3xl font-bold text-gray-900 leading-tight">
-                    {{ activeProject?.title }}
-                </h3>
+        <div
+          class="w-full lg:w-[450px] bg-white border-l border-gray-100 flex flex-col h-full overflow-hidden"
+        >
+          <!-- Header -->
+          <div class="p-8 pb-4">
+            <p
+              class="text-xs font-bold text-blue-600 tracking-widest uppercase mb-2"
+            >
+              {{ activeProject?.category }}
+            </p>
+            <h3 class="text-3xl font-bold text-gray-900 leading-tight">
+              {{ activeProject?.title }}
+            </h3>
+          </div>
+
+          <!-- Scrollable Content -->
+          <div class="flex-1 overflow-y-auto p-8 pt-0 space-y-8 scrollbar-hide">
+            <!-- About Section -->
+            <div>
+              <h4
+                class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3"
+              >
+                About Project
+              </h4>
+              <p class="text-gray-600 leading-relaxed text-[15px]">
+                {{ activeProject?.desc }}
+              </p>
             </div>
 
-            <!-- Scrollable Content -->
-            <div class="flex-1 overflow-y-auto p-8 pt-0 space-y-8 scrollbar-hide">
-                
-                <!-- About Section -->
-                <div>
-                     <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
-                        About Project
-                     </h4>
-                     <p class="text-gray-600 leading-relaxed text-[15px]">
-                        {{ activeProject?.desc }}
-                     </p>
-                </div>
-
-
-                <!-- Gallery Grid -->
-                <div>
-                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
-                        Gallery
-                    </h4>
-                    <div class="grid grid-cols-3 gap-3">
-                         <button 
-                            v-for="(img, idx) in activeProject?.images" 
-                            :key="idx" 
-                            @click="currentImageIndex = idx"
-                            class="relative aspect-video rounded-lg overflow-hidden border-2 transition-all group"
-                            :class="currentImageIndex === idx ? 'border-blue-600 ring-2 ring-blue-100 ring-offset-1' : 'border-transparent hover:border-gray-200'"
-                         >
-                            <img :src="img" class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500" />
-                         </button>
-                    </div>
-                </div>
+            <!-- Gallery Grid -->
+            <div>
+              <h4
+                class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3"
+              >
+                Gallery
+              </h4>
+              <div class="grid grid-cols-3 gap-3">
+                <button
+                  v-for="(img, idx) in activeProject?.images"
+                  :key="idx"
+                  @click="currentImageIndex = idx"
+                  class="relative aspect-video rounded-lg overflow-hidden border-2 transition-all group"
+                  :class="
+                    currentImageIndex === idx
+                      ? 'border-blue-600 ring-2 ring-blue-100 ring-offset-1'
+                      : 'border-transparent hover:border-gray-200'
+                  "
+                >
+                  <img
+                    :src="img"
+                    class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500"
+                  />
+                </button>
+              </div>
             </div>
-            
-            <!-- Optional Footer Actions -->
-            <!-- <div class="p-6 border-t border-gray-100 mt-auto">
+          </div>
+
+          <!-- Optional Footer Actions -->
+          <!-- <div class="p-6 border-t border-gray-100 mt-auto">
                 <button class="w-full py-3 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800 transition-colors">
                     Visit Live Site
                 </button>
             </div> -->
         </div>
-
       </div>
     </a-modal>
   </section>
@@ -208,12 +255,15 @@ import vehicleList from "@/assets/images/project/csc-vehicle-booking/vehicle-lis
 import vehicleDetail from "@/assets/images/project/csc-vehicle-booking/vehicle-detail.png";
 import vehicleBooking from "@/assets/images/project/csc-vehicle-booking/vehicle-booking.png";
 import ebookDashboard from "@/assets/images/project/e-book/elibrary.png";
+import elibrary2 from "@/assets/images/project/e-book/elibrary2.png";
 import coffeePos from "@/assets/images/project/pos-coffee/coffee-pos.png";
+import coffee4 from "@/assets/images/project/pos-coffee/coffee4.png";
+import coffee5 from "@/assets/images/project/pos-coffee/coffee5.png";
 
 interface Project {
   id: string;
   title: string;
-  category: string;
+
   desc: string;
   cover: string;
   images: string[];
@@ -223,7 +273,7 @@ const projects: Project[] = [
   {
     id: "csc-pos",
     title: "CSC-POS System",
-    category: "Enterprise System",
+
     desc: "A comprehensive enterprise Point of Sale and management system designed for high-volume retail. Orchestrates real-time inventory, user roles, and complex sales analytics into a unified dashboard.",
     cover: posDashboard,
     images: [posDashboard, posSales],
@@ -231,7 +281,7 @@ const projects: Project[] = [
   {
     id: "vehicle",
     title: "CSC Vehicle Booking",
-    category: "Internal Tool",
+
     desc: "Fleet management solution for optimizing logistics. Streamlines vehicle tracking, maintenance schedules, and departmental booking requests.",
     cover: vehicleList,
     images: [vehicleList, vehicleDetail, vehicleBooking],
@@ -239,18 +289,18 @@ const projects: Project[] = [
   {
     id: "coffee",
     title: "Coffee Shop POS",
-    category: "POS Interface",
+
     desc: "A specialized, touch-optimized POS interface tailored for rapid coffee shop operations. managing custom modifiers, tables, and kitchen display integration.",
     cover: coffeePos,
-    images: [coffeePos],
+    images: [coffeePos, coffee4, coffee5],
   },
   {
     id: "ebook",
     title: "E-BOOK Government",
-    category: "Digital Platform",
+
     desc: "Digital library platform securing government documents and educational resources. Features advanced search, mobile-responsive reading, and secure access controls.",
     cover: ebookDashboard,
-    images: [ebookDashboard],
+    images: [ebookDashboard, elibrary2],
   },
 ];
 
@@ -263,7 +313,6 @@ const activeProject = computed(() => projects[activeProjectIndex.value]);
 const activeImage = computed(
   () => activeProject.value?.images[currentImageIndex.value],
 );
-const projectTags = computed(() => activeProject.value?.tags || []);
 
 const openProject = (index: number) => {
   activeProjectIndex.value = index;
