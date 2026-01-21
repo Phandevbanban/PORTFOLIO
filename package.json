@@ -12,6 +12,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "ant-design-vue": "^4.2.6",
     "gsap": "^3.12.5",
     "scrolltrigger": "^1.0.1",
     "vue": "^3.3.11",
