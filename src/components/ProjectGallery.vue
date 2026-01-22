@@ -83,7 +83,7 @@
             </div>
 
             <p class="text-sm text-slate-500 leading-relaxed line-clamp-3">
-              {{ project.desc }}
+              <!-- {{ project.desc }} -->
             </p>
           </div>
         </div>
@@ -191,7 +191,7 @@
                 About Project
               </h4>
               <p class="text-gray-600 leading-relaxed text-[15px]">
-                {{ activeProject?.desc }}
+                <!-- {{ activeProject?.desc }} -->
               </p>
             </div>
 
@@ -254,7 +254,7 @@ interface Project {
   id: string;
   title: string;
 
-  desc: string;
+
   cover: string;
   images: string[];
 }
@@ -264,7 +264,7 @@ const projects: Project[] = [
     id: "csc-pos",
     title: "CSC-POS System",
 
-    desc: "A comprehensive enterprise Point of Sale and management system designed for high-volume retail. Orchestrates real-time inventory, user roles, and complex sales analytics into a unified dashboard.",
+  
     cover: posDashboard,
     images: [posDashboard, posSales],
   },
@@ -272,23 +272,23 @@ const projects: Project[] = [
     id: "vehicle",
     title: "CSC Vehicle Booking",
 
-    desc: "Fleet management solution for optimizing logistics. Streamlines vehicle tracking, maintenance schedules, and departmental booking requests.",
+ 
     cover: vehicleList,
     images: [vehicleList, vehicleDetail, vehicleBooking],
   },
   {
     id: "coffee",
-    title: "Coffee Shop POS",
+    title: "Coffee  POS",
 
-    desc: "A specialized, touch-optimized POS interface tailored for rapid coffee shop operations. managing custom modifiers, tables, and kitchen display integration.",
+
     cover: coffeePos,
     images: [coffeePos, coffee4, coffee5],
   },
   {
     id: "ebook",
-    title: "E-BOOK Government",
+    title: "E-BOOK ",
 
-    desc: "Digital library platform securing government documents and educational resources. Features advanced search, mobile-responsive reading, and secure access controls.",
+
     cover: ebookDashboard,
     images: [ebookDashboard, elibrary2],
   },

@@ -70,12 +70,12 @@
           <div class="p-8">
             <div class="flex items-center justify-between mb-6">
               <h2 class="text-3xl font-bold text-blue-700">Work Experience</h2>
-              <a
+              <!-- <a
                 href="/CV.pdf"
                 class="text-sm bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600"
                 download
                 >Download CV</a
-              >
+              > -->
             </div>
 
             <div class="space-y-8">
