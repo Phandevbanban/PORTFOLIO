@@ -197,14 +197,19 @@ const container = ref(null);
 const content = ref(null);
 
 onMounted(() => {
-  gsap.from(container.value, {
-    delay: 0.5,
-    duration: 1,
-    y: 100,
-    stagger: 0.25,
-    autoAlpha: 0,
-    ease: "back.out(1.7)",
-  });
+  console.log("HomeView mounted");
+  if (container.value) {
+    gsap.from(container.value, {
+      delay: 0.5,
+      duration: 1,
+      y: 100,
+      stagger: 0.25,
+      autoAlpha: 0,
+      ease: "back.out(1.7)",
+    });
+  } else {
+    console.warn("Container ref not found");
+  }
 });
 </script>
 
