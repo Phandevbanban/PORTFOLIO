@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TechItem from '../components/TechItem.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+
+import {
+  HtmlIcon, CssIcon, JsIcon, TsIcon, NextIcon, TailwindIcon, 
+  ShadcnIcon, GitIcon, ReactIcon, MySQLIcon, NestIcon, DockerIcon, RedisIcon,
+  ChatIcon, CodeIcon, ArrowDownIcon
+} from '../components/Icons';
+
+// Import project images for optimization
+import cscPosImg from '../assets/images/project/csc-pos/pos-dashboard.png';
+import cscVehicleImg from '../assets/images/project/csc-vehicle-booking/vehicle-list.png';
+import coffeePosImg from '../assets/images/project/pos-coffee/coffee-pos.png';
+import ebookImg from '../assets/images/project/e-book/elibrary.png';
+
+---
+
+<Layout title="Phanvilay Xaphakdy | Full-Stack Web Developer">
+  <div class="px-6 py-10 md:px-16 md:py-16">
+    
+    <!-- Header Section -->
+    <div class="mb-14">
+      <div class="inline-flex items-center gap-2 bg-blue-500 text-white rounded-t-xl rounded-br-xl rounded-bl-sm px-4 py-2 text-sm font-bold shadow-md shadow-blue-500/20 mb-6">
+        <ChatIcon />
+        Hi!
+      </div>
+      
+      <h1 class="text-[2.5rem] md:text-5xl font-extrabold text-[#113264] tracking-tight leading-tight mb-3">
+        I'm phanvilay XAPHAKDY
+      </h1>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-blue-500 tracking-tight mb-8">
+        FULL-STACK Web Developer.
+      </h2>
+      
+      <p class="max-w-lg text-gray-600 font-medium leading-relaxed text-[15px] md:text-base">
+        I build modern web applications with a focus on<br class="hidden sm:block" />
+        performance, clean design patterns accessibility, and<br class="hidden sm:block" />
+        user experience.
+      </p>
+    </div>
+
+    <!-- Tools of Development Section -->
+    <div class="mb-20">
+      <div class="flex items-center gap-3 mb-8 text-gray-800">
+        <CodeIcon></CodeIcon>
+        <h3 class="font-bold text-[17px]">Tools of development</h3>
+      </div>
+      
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-8 text-[15px] font-medium text-gray-600">
+        <TechItem name="HTML"><HtmlIcon /></TechItem>
+        <TechItem name="CSS"><CssIcon /></TechItem>
+        <TechItem name="JavaScript"><JsIcon /></TechItem>
+        <TechItem name="TypeScript"><TsIcon /></TechItem>
+        <TechItem name="Next.js"><NextIcon /></TechItem>
+        <TechItem name="Tailwind CSS"><TailwindIcon /></TechItem>
+        <TechItem name="Shadcn UI"><ShadcnIcon /></TechItem>
+        <TechItem name="Git"><GitIcon /></TechItem>
+        <TechItem name="MySQL"><MySQLIcon /></TechItem>
+        <TechItem name="React"><ReactIcon /></TechItem>
+        <TechItem name="NestJS"><NestIcon /></TechItem>
+        <TechItem name="Docker"><DockerIcon /></TechItem>
+        <TechItem name="Redis"><RedisIcon /></TechItem>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="mb-20 flex flex-col items-center">
+      <h3 class="text-2xl font-extrabold text-gray-900 mb-10 text-center">Projects</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-3xl lg:max-w-4xl mx-auto">
+        <ProjectCard 
+          title="CSC-POS System" 
+          imageSrc={cscPosImg} 
+        />
+        <ProjectCard 
+          title="CSC Vehicle Booking" 
+          imageSrc={cscVehicleImg} 
+        />
+        <ProjectCard 
+          title="Coffee POS" 
+          imageSrc={coffeePosImg} 
+        />
+        <ProjectCard 
+          title="E-BOOK" 
+          imageSrc={ebookImg} 
+        />
+      </div>
+    </div>
+
+    <!-- Work Experience Section -->
+    <div class="mb-16 mt-8">
+      <h3 class="text-xl font-extrabold text-blue-500 mb-8">Work Experience</h3>
+      
+      <div class="max-w-4xl mx-auto pl-1 pr-4 md:pr-10">
+        <ExperienceItem
+          title="Position Front-End Web Developer"
+          company="Houng Ah Loun Technology"
+          date="2 May 2023 - 31 January 2024"
+          descriptions={[
+            "The company provided me with hands-on experience in web development by assigning tasks.",
+            "Gained experience in debugging, design, testing and code optimization.",
+            "Collaborated on small to medium-sized coding tasks and projects, demonstrating a strong willingness to learn and grow.",
+            "Participated in weekly stand-up meetings and sprint planning.",
+            "Internship at Lao Telecom: Online Charging IT Department — learned about mobile networks, fixed-line services, internet services, and value-added services and developed MySQL skills."
+          ]}
+        />
+        
+        <ExperienceItem
+          title="Position Full-Stack Web Developer"
+          company="CSC Complex Center Co, Ltd"
+          date="1 April 2024 - 17 August 2025"
+          descriptions={[
+            "Developed and launched web applications using modern technologies (e.g., React, Node.js, MySQL) to meet business requirements.",
+            "Maintained and enhanced existing company web applications; implemented fixes for critical bugs and crashes.",
+            "Provided technical support and troubleshooting for various departments, resolving application issues to ensure smooth daily operations."
+          ]}
+        />
+      </div>
+    </div>
+
+    <!-- Footer Icon -->
+    <div class="flex justify-center mt-20 pb-8">
+      <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+        <ArrowDownIcon />
+      </div>
+    </div>
+  </div>
+</Layout>

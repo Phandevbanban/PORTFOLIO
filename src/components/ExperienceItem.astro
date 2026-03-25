@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  company: string;
+  date: string;
+  descriptions: string[];
+}
+
+const { title, company, date, descriptions } = Astro.props;
+---
+<div class="mb-8">
+  <div class="flex flex-col md:flex-row md:items-start justify-between mb-2 gap-1 md:gap-4 text-sm text-gray-500">
+    <div>
+      <h4 class="font-bold text-gray-800 text-base">{title}</h4>
+      <p>{company}</p>
+    </div>
+    <p class="md:text-right shrink-0">{date}</p>
+  </div>
+  <ul class="list-disc pl-5 text-gray-600 text-sm space-y-2 mt-3">
+    {descriptions.map((desc) => (
+      <li class="leading-relaxed">{desc}</li>
+    ))}
+  </ul>
+</div>
