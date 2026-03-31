@@ -16,9 +16,11 @@ const { title, company, date, descriptions } = Astro.props;
     </div>
     <p class="md:text-right shrink-0">{date}</p>
   </div>
-  <ul class="list-disc pl-5 text-gray-600 text-sm space-y-2 mt-3">
-    {descriptions.map((desc) => (
-      <li class="leading-relaxed">{desc}</li>
-    ))}
-  </ul>
+  {descriptions.length > 0 && (
+    <ul class="list-disc pl-5 text-gray-600 text-sm space-y-2 mt-3 font-medium">
+      {descriptions.map((desc) => (
+        <li class="leading-relaxed transition-colors hover:text-gray-900">{desc}</li>
+      ))}
+    </ul>
+  )}
 </div>
